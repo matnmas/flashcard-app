@@ -134,7 +134,7 @@ body{
     letter-spacing: 3px
   }
   
-  .login-box a:hover {
+  .login-box a:hover, #login-button:hover, #signup-button:hover{
     background: #fff;
     color: #272727;
     border-radius: 5px;
@@ -252,6 +252,61 @@ body{
     width: 50%;
 
   }
+
+  flashcardform{
+    background-color: #383838;
+    padding: 15px;
+}
+  
+.form-control{
+    outline: none;
+    border: none;
+    border-bottom: 3px solid #a56aaa;
+}
+  
+.form-control:focus{
+    outline: none;
+    border: none;
+    box-shadow: 0 0 10px 1px #a56aaa;
+    transition: all .3s;
+}
+  
+.deletebutton{
+    display: flex;
+    margin-left: auto;
+    margin-bottom: 10px;
+    outline: none;
+    border: none;
+    background-color: transparent;
+}
+  
+.deletebutton .far{
+    color: #a56aaa;
+    font-size: 20px;
+}
+  
+.createbutton, .addbutton{
+    display: flex;
+    justify-content: center;
+}
+  
+.createbutton .btn, .addbutton .btn{
+    outline: none;
+    border: none;
+    background-color: #a56aaa;
+}
+
+#login-button{
+    border: none;
+    background-color: transparent;
+    color: white;
+}
+
+#signup-button{
+    border: none;
+    background-color: transparent;
+    color: white;
+}
 
   
 
