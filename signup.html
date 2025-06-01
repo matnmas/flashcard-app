@@ -11,16 +11,20 @@
 <body>
 
     <div class="login-box">
-        <p>Sign-up</p>
+        <h2 style="text-align: center; margin-bottom: 20px; color: #6A2C70; font-weight: bold;">Cobits Flashcards</h2>
+        <p style="color: white; font-weight: bold; font-size: 20px;">Sign-up</p>
         <form id="signup-form">
           <div class="user-box">
             <input required id="signup-username" type="text">
             <label>Username</label>
+            <div id="signup-username-error" class="error-message" style="color: #ff5555; font-size: 12px; margin-top: 5px; display: none; font-weight: bold;"></div>
           </div>
           <div class="user-box">
             <input required id="signup-password" type="password">
             <label>Password</label>
+            <div id="signup-password-error" class="error-message" style="color: #ff5555; font-size: 12px; margin-top: 5px; display: none;"></div>
           </div>
+          <div id="signup-general-error" class="error-message" style="color: #ff5555; font-size: 14px; margin-top: 5px; margin-bottom: 10px; display: none; font-weight: bold; text-align: center;"></div>
           <a>
             <span></span>
             <span></span>
@@ -32,6 +36,7 @@
         <p>Already have an account? <a href="index.html" class="a2">Login</a></p>
     </div>
 
+    <script src="js/api.js"></script>
     <script src="js/script.js"></script>
 </body>
 </html>

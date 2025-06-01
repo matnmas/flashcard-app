@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Content - Cobits Study</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/course.css">
+    <script src="js/api.js"></script>
+    <script src="js/course_script.js"></script>
+</head>
+<body>
+
+    <nav class="navbar navbar-custom fixed-top">
+        <div class="container-fluid">
+            <div class="d-flex align-items-center">
+                <button class="navbar-toggler me-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+                    <i class="fa fa-bars"></i>
+                </button>
+                <a class="back-link" href="library.html">
+                    <i class="fa fa-arrow-left"></i>
+                    <span class="ms-1 back-text">Back to library</span>
+                </a>
+            </div>
+
+            <div class="ms-auto d-flex align-items-center">
+                <div class="dropdown">
+                    <a href="#" class="profile-icon-link" id="profileDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="fa fa-user-circle" style="font-size: 1.5rem; color: white;"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="profileDropdown">
+                        <li><span class="dropdown-item fw-bold" id="current-user"></span></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="#" id="logout-button">Logout</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="offcanvas offcanvas-start offcanvas-custom" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Menu</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                <li class="nav-item">
+                    <a class="nav-link" href="library.html">My Library</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="course.html">Courses</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="flashcard2.html">Create Flashcard</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="container text-white mt-4" id="course-content-container">
+        <div class="deck-header">
+            <h1 id="courseMainTitle" class="deck-header-title">Course Title</h1>
+            <div class="deck-header-actions">
+                <button class="btn btn-outline-light" id="addCardsButton">Add Cards</button>
+                <button class="btn btn-primary" id="studyDeckButton">Study</button>
+            </div>
+        </div>
+        <p id="courseCardCount" class="course-card-count">Flashcards: 0</p>
+
+        <div class="filter-buttons-container mb-4">
+            <button class="btn filter-button active" data-tab-filter="all">All</button>
+            <button class="btn filter-button" data-tab-filter="new">New</button>
+            <button class="btn filter-button" data-tab-filter="learning">Still learning</button>
+            <button class="btn filter-button" data-tab-filter="mastered">Mastered</button>
+        </div>
+        
+        <div id="flashcards-list-area" class="mt-3">
+        </div>
+    </div>
+</body>
+</html>
