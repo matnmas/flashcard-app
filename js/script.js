@@ -84,21 +84,15 @@ document.addEventListener("DOMContentLoaded", function () {
         
         window.location.href = "library.html";
       } catch (error) {
-        const errorMsg = error.message || "Registration failed";
+        console.log('Signup error:', error);
         
-        try {
-          console.log('Attempting to parse signup error message as JSON');
-          const errorData = JSON.parse(error.message);
-          console.log('Parsed signup error data:', errorData);
-          
-          showErrorMessage('signup-general-error', errorData.error || errorData.msg || 'Registration failed');
-          
-          if (errorData.field === 'username') {
-            showErrorMessage('signup-username-error', errorData.error || 'Username already exists');
-          }
-        } catch (parseError) {
-          console.log('Error parsing signup JSON:', parseError);
-          showErrorMessage('signup-general-error', 'Registration failed: ' + errorMsg);
+        // Show specific field errors or general error
+        if (error.field === 'username') {
+          showErrorMessage('signup-username-error', 'Username already exists');
+        } else {
+          // Only show general error if there's no field-specific error
+          const errorMessage = error.msg || error.error || 'Registration failed';
+          showErrorMessage('signup-general-error', errorMessage);
         }
         
         document.getElementById("signup-button").disabled = false;
@@ -137,30 +131,17 @@ document.addEventListener("DOMContentLoaded", function () {
         
         window.location.href = "library.html";
       } catch (error) {
-        const errorMsg = error.message || "Login failed";
         console.log('Login error:', error);
-        console.log('Error message:', errorMsg);
         
-        try {
-          console.log('Attempting to parse error message as JSON');
-          const errorData = JSON.parse(error.message);
-          console.log('Parsed error data:', errorData);
-          console.log('Error field:', errorData.field);
-          console.log('Error message:', errorData.error);
-          console.log('Error msg:', errorData.msg);
-          
-          const errorMessage = errorData.error || errorData.msg || 'Login failed';
-          console.log('Displaying error message:', errorMessage);
+        // Show specific field errors or general error
+        if (error.field === 'username') {
+          showErrorMessage('login-username-error', 'No account exists with this username');
+        } else if (error.field === 'password') {
+          showErrorMessage('login-password-error', 'Password is incorrect');
+        } else {
+          // Only show general error if there's no field-specific error
+          const errorMessage = error.msg || error.error || 'Login failed';
           showErrorMessage('login-general-error', errorMessage);
-          
-          if (errorData.field === 'username') {
-            showErrorMessage('login-username-error', errorData.error || 'No account exists with this username');
-          } else if (errorData.field === 'password') {
-            showErrorMessage('login-password-error', errorData.error || 'Password is incorrect');
-          }
-        } catch (parseError) {
-          console.log('Error parsing JSON:', parseError);
-          showErrorMessage('login-general-error', 'Login failed: ' + errorMsg);
         }
         
         document.getElementById("login-button").disabled = false;

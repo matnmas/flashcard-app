@@ -54,17 +54,8 @@ async function apiRequest(endpoint, method = 'GET', data = null, token = null) {
     
     if (!response.ok) {
       console.error(`API error (${response.status}): ${JSON.stringify(responseData)}`);
-      let errorMessage = 'Unknown API error';
-      if (responseData.message) {
-        errorMessage = responseData.message;
-      } else if (responseData.error) {
-        errorMessage = responseData.error;
-      } else if (responseData.msg) {
-        errorMessage = responseData.msg;
-      } else if (typeof responseData === 'string') {
-        errorMessage = responseData;
-      }
-      return { error: errorMessage, status: response.status };
+      
+      throw responseData;
     }
 
     return responseData;
